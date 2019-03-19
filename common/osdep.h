@@ -168,6 +168,11 @@ int x264_is_pipe( const char *path );
 #define ALWAYS_INLINE __attribute__((always_inline)) inline
 #define NOINLINE __attribute__((noinline))
 #define MAY_ALIAS __attribute__((may_alias))
+#if __GNUC__ >= 4 && !(SYS_WINDOWS || SYS_CYGWIN)
+#define HIDDEN __attribute__((visibility("hidden")))
+#else
+#define HIDDEN
+#endif
 #define x264_constant_p(x) __builtin_constant_p(x)
 #define x264_nonconstant_p(x) (!__builtin_constant_p(x))
 #else
@@ -180,6 +185,7 @@ int x264_is_pipe( const char *path );
 #endif
 #define UNUSED
 #define MAY_ALIAS
+#define HIDDEN
 #define x264_constant_p(x) 0
 #define x264_nonconstant_p(x) 0
 #endif

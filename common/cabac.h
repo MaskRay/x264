@@ -72,7 +72,7 @@ void x264_cabac_encode_terminal_c( x264_cabac_t *cb );
 #define x264_cabac_encode_terminal_asm x264_template(cabac_encode_terminal_asm)
 void x264_cabac_encode_terminal_asm( x264_cabac_t *cb );
 #define x264_cabac_encode_ue_bypass x264_template(cabac_encode_ue_bypass)
-void x264_cabac_encode_ue_bypass( x264_cabac_t *cb, int exp_bits, int val );
+HIDDEN void x264_cabac_encode_ue_bypass( x264_cabac_t *cb, int exp_bits, int val );
 #define x264_cabac_encode_flush x264_template(cabac_encode_flush)
 void x264_cabac_encode_flush( x264_t *h, x264_cabac_t *cb );
 
